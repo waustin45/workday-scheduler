@@ -1,12 +1,14 @@
+// global variables
 const schedule = document.querySelector('.schedule')
 const currentDay = document.querySelector('#currentDay')
+//gets current day and time
 const today = dayjs()
 currentDay.innerHTML = dayjs().format('dddd [of] MM-DD-YYYY')
+//sets hour to military time
 const currentHourAm = dayjs().format('HH')
 const currentHourPm = dayjs().format('h')
 console.log(currentHourAm)
 const Btn = document.querySelector('.saveBtn')
-
 // array of html in object form
 const workDayArray = [
   {
@@ -92,7 +94,6 @@ const map = workDayArray.map((info, index) => {
   ${info.button}
   </div>`)
 }).join("")
-
 // displays the mapped objects to the user
 function showMap () {
   
@@ -100,8 +101,7 @@ schedule.innerHTML = map
 
 }
 showMap()
-
-
+//saves the inputted chores into local storage.
 function saveChore () {
   const textArea = document.querySelectorAll('.description')
   const saveBtn = document.querySelectorAll('#save-btn') 
@@ -174,9 +174,7 @@ console.log(saveBtn)
 
 }
 saveChore()
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
+//shows the inputted chores onto the screen. pulling from local storage.
 function showChore () {
   const nineAm = document.querySelector('#nineAm')
   const tenAm = document.querySelector('#tenAm') 
@@ -204,6 +202,7 @@ function showChore () {
   
 }
 showChore()
+//changes the past future presnt classes of the time slots based on the time of day.
 function changeColor () {
   const timeSlot = document.querySelectorAll('.chore-wrapper')
   
@@ -232,26 +231,7 @@ if (currentHourAm > 18) {
 }
 }
 changeColor()
+//clears the local storage once it hits 7pm to refresh the tasks for the next day.
 currentHourAm.addEventListener('change', () => {
   location.reload()
 })
-$(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
-});
