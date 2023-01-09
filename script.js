@@ -103,6 +103,7 @@ schedule.innerHTML = map
 showMap()
 //saves the inputted chores into local storage.
 function saveChore () {
+  // variables of each attribute to read values and ids
   const textArea = document.querySelectorAll('.description')
   const saveBtn = document.querySelectorAll('#save-btn') 
   const nineAm = document.querySelector('#nineAm') 
@@ -126,6 +127,7 @@ function saveChore () {
   const tenAm = document.querySelector('#tenAm') 
   const tenAtt = tenAm.getAttribute('data-chore')
   console.log(twoAtt)
+  // for each loop to listen for click on each button that is clicked to store value in local storage.
 saveBtn.forEach(each => {
   
  const saveAtt = each.getAttribute("data-time")
@@ -188,7 +190,7 @@ function showChore () {
   const sixPm = document.querySelector('#sixPm') 
   const storage = document.querySelectorAll('.description')
    
-  
+  // pulls from local storage and displays it to screen in correct time slots.
   nineAm.innerHTML = JSON.parse(localStorage.getItem("9am"))
   tenAm.innerHTML = JSON.parse(localStorage.getItem("10am"))
   elevenAm.innerHTML = JSON.parse(localStorage.getItem("11am"))

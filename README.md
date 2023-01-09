@@ -1,3 +1,30 @@
+## Project Read me
+
+# Tasks
+
+Create a work day scheduler that saves each task into local storage, and changes color by the hour.
+
+```tasks
+- display each time slot with the map function giving them a class and specidic id
+- create an event listener to listen for each save button.
+- connect to dayjs() to get real time data of hours, minutes, and seconds.
+- use that data to determine what color each time slot should be 
+- test for local storage. 
+```
+
+## link to site
+ https://waustin45.github.io/workday-scheduler/
+
+## link to code
+https://github.com/waustin45/workday-scheduler.git
+
+## site picture
+![image](./work-day-pic.PNG)
+
+
+
+
+## Rubric for project given below.
 # 05 Third-Party APIs: Work Day Scheduler
 
 ## Your Task
